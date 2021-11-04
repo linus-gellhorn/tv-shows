@@ -24,7 +24,12 @@ export default function Episode(props: EpisodeProps): JSX.Element {
         {props.name} - Season: {props.season} Episode: {props.number}
       </h2>
       <img src={props.image.medium} alt="" />
-      <p>{props.summary.replace("<p>", "").replace("</p>", "").replace("<br><br>", "")}</p>
+      <p>
+        {props.summary
+          .replace("<p>", "")
+          .replace("</p>", "")
+          .replace("<br><br>", "")}
+      </p>
     </>
   );
 }
