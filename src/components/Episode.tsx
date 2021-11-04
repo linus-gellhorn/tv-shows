@@ -21,7 +21,9 @@ export default function Episode(props: EpisodeProps): JSX.Element {
   return (
     <>
       <h2>
-        {props.name} - Season: {props.season} Episode: {props.number}
+        {/* taking advantage of type coercion! */}
+        {props.name} - S0{props.season}E
+        {props.number > 9 ? props.number : "0" + props.number}
       </h2>
       <img src={props.image.medium} alt="" />
       <p>
