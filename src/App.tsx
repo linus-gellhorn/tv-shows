@@ -1,5 +1,6 @@
 import EpisodeList from "./components/EpisodeList";
 import MainFooter from "./components/MainFooter";
+import "./App.css";
 
 function App(): JSX.Element {
   return (
