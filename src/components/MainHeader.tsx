@@ -11,7 +11,7 @@ export default function MainHeader(): JSX.Element {
         placeholder="Search for episode(s)"
         value={typedMessage}
         onChange={(event) => {
-          setTypedMessage(event.target.value);
+          setTypedMessage(event.target.value.toLowerCase());
         }}
       />
       <p>You are searching for: {typedMessage}</p>

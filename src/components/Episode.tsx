@@ -1,4 +1,4 @@
-interface EpisodeProps {
+export interface IEpisode {
   id: number;
   url: string;
   name: string;
@@ -17,17 +17,23 @@ interface EpisodeProps {
   _links: { self: { href: string } };
 }
 
+export interface EpisodeProps {
+  episode: IEpisode;
+}
+
 export default function Episode(props: EpisodeProps): JSX.Element {
+  const episode = props.episode;
+
   return (
     <>
       <h2>
         {/* taking advantage of type coercion! */}
-        {props.name} - S0{props.season}E
-        {props.number > 9 ? props.number : "0" + props.number}
+        {episode.name} - S0{episode.season}E
+        {episode.number > 9 ? episode.number : "0" + episode.number}
       </h2>
-      <img src={props.image.medium} alt="" />
+      <img src={episode.image.medium} alt="" />
       <p>
-        {props.summary
+        {episode.summary
           .replace("<p>", "")
           .replace("</p>", "")
           .replace("<br><br>", "")}
