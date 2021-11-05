@@ -32,12 +32,7 @@ export default function Episode(props: EpisodeProps): JSX.Element {
         {episode.number > 9 ? episode.number : "0" + episode.number}
       </h2>
       <img src={episode.image.medium} alt="" />
-      <p>
-        {episode.summary
-          .replace("<p>", "")
-          .replace("</p>", "")
-          .replace("<br><br>", "")}
-      </p>
+      <p>{episode.summary.replace(/<.*?>/g, "")}</p>
     </>
   );
 }
