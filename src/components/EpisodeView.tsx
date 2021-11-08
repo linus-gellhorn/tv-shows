@@ -17,11 +17,11 @@ export interface IEpisode {
   _links: { self: { href: string } };
 }
 
-export interface EpisodeProps {
+export interface EpisodeViewProps {
   episode: IEpisode;
 }
 
-export default function Episode(props: EpisodeProps): JSX.Element {
+export default function EpisodeView(props: EpisodeViewProps): JSX.Element {
   const episode = props.episode;
 
   return (
