@@ -9,3 +9,8 @@ h2 {
 footer {
   text-align: center;
 }
+
+select {
+  padding: 5px;
+  margin: 10px;
+}
