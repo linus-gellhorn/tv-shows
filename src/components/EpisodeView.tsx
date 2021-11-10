@@ -10,7 +10,7 @@ export interface IEpisode {
   airstamp: string;
   runtime: number;
   image: {
-    medium: string;
+    medium: string | null;
     original: string;
   };
   summary: string;
@@ -31,7 +31,13 @@ export default function EpisodeView(props: EpisodeViewProps): JSX.Element {
         {episode.name} - S0{episode.season}E
         {episode.number > 9 ? episode.number : "0" + episode.number}
       </h2>
-      <img src={episode.image.medium} alt="" />
+      {episode.image.medium !== null ? (
+        <img src={episode.image.medium} alt="" />
+      ) : (
+        <p>
+          <em>No image found</em>
+        </p>
+      )}
       <p>{episode.summary.replace(/<.*?>/g, "")}</p>
     </>
   );
