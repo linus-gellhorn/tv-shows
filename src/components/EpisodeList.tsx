@@ -1,10 +1,23 @@
 import EpisodeView from "./EpisodeView";
-import episodes from "../data/episodes.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { IEpisode } from "./EpisodeView";
 
 export default function EpisodeList(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState("");
   const [selected, setSelected] = useState("");
+  const [episodes, setEpisodes] = useState<IEpisode[]>([]);
+
+  useEffect(() => {
+    async function fetchAsSaveEpisodes() {
+      const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+      const episodesFromBody: IEpisode[] = await response.json();
+      setEpisodes(episodesFromBody);
+    }
+
+    fetchAsSaveEpisodes();
+  }, []);
+
+  console.log(episodes);
 
   const filteredEpisodes =
     selected !== ""
