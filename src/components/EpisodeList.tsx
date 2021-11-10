@@ -15,6 +15,10 @@ export default function EpisodeList(): JSX.Element {
             episode.summary.toLowerCase().includes(searchTerm.toLowerCase())
         );
 
+  const handleReset = () => {
+    return setSelected("");
+  };
+
   return (
     <>
       <label htmlFor="episodes">Choose a specifc episode: </label>
@@ -43,6 +47,7 @@ export default function EpisodeList(): JSX.Element {
         Showing results for: {filteredEpisodes.length} / {episodes.length}{" "}
         episodes.
       </p>
+      <button onClick={handleReset}>Reset</button>
       {filteredEpisodes.map((episode) => (
         <EpisodeView key={episode.id} episode={episode} />
       ))}
